@@ -30,6 +30,7 @@ Task arrives
     ├── Writing/running tests? ────────→ test-driven-development
     │   └── Browser-based? ───────────→ browser-testing-with-devtools
     ├── Verifying frontend UX? ────────→ browser-ui-verification
+    ├── Visual/layout QA? ─────────────→ visual-regression-and-layout-qa
     ├── Something broke? ──────────────→ debugging-and-error-recovery
     ├── Reviewing code? ───────────────→ code-review-and-quality
     │   ├── Too complex? ─────────────→ code-simplification
@@ -133,7 +134,7 @@ These are the subtle errors that look like productivity but create problems:
 
 2. **Skills are workflows, not suggestions.** Follow the steps in order. Don't skip verification steps.
 
-3. **Multiple skills can apply.** A feature implementation might involve `idea-refine` → `spec-driven-development` → `planning-and-task-breakdown` → `incremental-implementation` → `test-driven-development` → `browser-ui-verification` or `backend-reliability-review` → `code-review-and-quality` → `code-simplification` → `shipping-and-launch` in sequence.
+3. **Multiple skills can apply.** A feature implementation might involve `idea-refine` → `spec-driven-development` → `planning-and-task-breakdown` → `incremental-implementation` → `test-driven-development` → `browser-ui-verification` → `visual-regression-and-layout-qa` for UI work, or `backend-reliability-review` for backend work, then `code-review-and-quality` → `code-simplification` → `shipping-and-launch` in sequence.
 
 4. **When in doubt, start with a spec.** If the task is non-trivial and there's no spec, begin with `spec-driven-development`.
 
@@ -153,16 +154,17 @@ For a complete feature, the typical skill sequence is:
 9.  doubt-driven-development    → Cross-examine non-trivial decisions in-flight
 10. test-driven-development     → Prove each slice works
 11. browser-ui-verification     → Verify rendered UI and user journeys in a real browser
-12. backend-reliability-review  → Review backend validation, permissions, consistency, concurrency, and idempotency
-13. code-review-and-quality     → Review before merge
-14. code-simplification         → Reduce unnecessary complexity while preserving behavior
-15. git-workflow-and-versioning → Clean commit history
-16. documentation-and-adrs      → Document decisions
-17. deprecation-and-migration   → Retire old systems and move users safely when needed
-18. shipping-and-launch         → Deploy safely
+12. visual-regression-and-layout-qa → Verify screenshots, overflow, overlap, clipping, touch targets, and responsive layout
+13. backend-reliability-review  → Review backend validation, permissions, consistency, concurrency, and idempotency
+14. code-review-and-quality     → Review before merge
+15. code-simplification         → Reduce unnecessary complexity while preserving behavior
+16. git-workflow-and-versioning → Clean commit history
+17. documentation-and-adrs      → Document decisions
+18. deprecation-and-migration   → Retire old systems and move users safely when needed
+19. shipping-and-launch         → Deploy safely
 ```
 
-Not every task needs every skill. A bug fix might only need: `debugging-and-error-recovery` → `test-driven-development` → `browser-ui-verification` for UI bugs or `backend-reliability-review` for backend bugs → `code-review-and-quality`.
+Not every task needs every skill. A bug fix might only need: `debugging-and-error-recovery` → `test-driven-development` → `browser-ui-verification` → `visual-regression-and-layout-qa` for visual UI bugs or `backend-reliability-review` for backend bugs → `code-review-and-quality`.
 
 ## Quick Reference
 
@@ -180,6 +182,7 @@ Not every task needs every skill. A bug fix might only need: `debugging-and-erro
 | Build | api-and-interface-design | Stable interfaces with clear contracts |
 | Verify | test-driven-development | Failing test first, then make it pass |
 | Verify | browser-ui-verification | Real-browser UI, interaction, console, network, and responsive verification |
+| Verify | visual-regression-and-layout-qa | Screenshots and layout audits for overlap, overflow, clipping, touch targets, and responsive defects |
 | Verify | browser-testing-with-devtools | Chrome DevTools MCP for runtime verification |
 | Verify | backend-reliability-review | Backend validation, authorization, consistency, concurrency, idempotency, and observability review |
 | Verify | debugging-and-error-recovery | Reproduce → localize → fix → guard |

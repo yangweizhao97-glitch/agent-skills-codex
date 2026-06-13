@@ -19,6 +19,7 @@ Idea/Spec --> Tasks  -->   Code   -->   Tests + Browser Proof --> QA Gate --> La
 |---|---|
 | Frontend verification | Adds `browser-ui-verification` as a real-browser acceptance gate |
 | Browser evidence | Requires screenshots, console checks, network summaries, and viewport checks |
+| Visual layout QA | Adds `visual-regression-and-layout-qa` for overlap, overflow, clipping, touch target, and responsive defects |
 | UX correctness | Verifies what users see and do, not only whether code executes |
 | Backend reliability | Adds `backend-reliability-review` for validation, auth, consistency, concurrency, and idempotency |
 | Completion discipline | Treats missing evidence as incomplete work |
@@ -45,6 +46,7 @@ Use the two browser skills together:
 |---|---|
 | `browser-ui-verification` | Defines what must be proven: user journeys, expected results, pass/fail criteria, viewport set, and evidence format |
 | `browser-testing-with-devtools` | Provides browser runtime tools: screenshots, DOM, console, network, performance, accessibility tree, and computed styles |
+| `visual-regression-and-layout-qa` | Adds a visual defect gate: screenshots, horizontal overflow, overlapping controls, clipped overlays, touch targets, and long-content stress checks |
 
 ## Quick Start
 
@@ -65,6 +67,7 @@ For a frontend or full-stack implementation, add:
 skills/frontend-ui-engineering/SKILL.md
 skills/test-driven-development/SKILL.md
 skills/browser-ui-verification/SKILL.md
+skills/visual-regression-and-layout-qa/SKILL.md
 ```
 
 For a backend API or data-writing implementation, add:
@@ -77,9 +80,9 @@ skills/security-and-hardening/SKILL.md
 
 The upstream Claude, Gemini, Cursor, Windsurf, OpenCode, and Copilot setup guides still apply conceptually because skills are Markdown files, but this repository is intentionally packaged as a Codex-first instruction set rather than a native plugin bundle.
 
-## All 26 Skills
+## All 27 Skills
 
-The pack includes 26 skills total: 25 lifecycle skills plus the `using-agent-skills` meta-skill. Each skill is a structured workflow with steps, verification gates, and anti-rationalization tables. You can reference any skill directly.
+The pack includes 27 skills total: 26 lifecycle skills plus the `using-agent-skills` meta-skill. Each skill is a structured workflow with steps, verification gates, and anti-rationalization tables. You can reference any skill directly.
 
 ### Meta
 
@@ -119,6 +122,7 @@ The pack includes 26 skills total: 25 lifecycle skills plus the `using-agent-ski
 | [test-driven-development](skills/test-driven-development/SKILL.md) | Proves behavior with tests before and during implementation | Implementing logic, fixing bugs, or changing behavior |
 | [browser-ui-verification](skills/browser-ui-verification/SKILL.md) | Verifies rendered UI, user journeys, console logs, network requests, and responsive layouts in a real browser | Frontend or full-stack work affects user-visible behavior |
 | [browser-testing-with-devtools](skills/browser-testing-with-devtools/SKILL.md) | Uses browser runtime tools for DOM, console, network, performance, and screenshots | Browser evidence or debugging is needed |
+| [visual-regression-and-layout-qa](skills/visual-regression-and-layout-qa/SKILL.md) | Audits screenshots and rendered layout for overlap, overflow, clipping, small touch targets, and broken responsive states | UI layout or visual polish could regress |
 | [backend-reliability-review](skills/backend-reliability-review/SKILL.md) | Reviews validation, authorization, consistency, concurrency, idempotency, errors, performance, and observability | Backend or full-stack changes affect data, users, or production behavior |
 | [debugging-and-error-recovery](skills/debugging-and-error-recovery/SKILL.md) | Reproduces, localizes, fixes, and guards against failures | Tests fail, builds break, or behavior is unexpected |
 
@@ -150,6 +154,7 @@ Frontend or full-stack completion should include browser evidence:
 - Console checked for uncaught errors and relevant warnings
 - Network requests checked when the flow depends on APIs
 - Screenshots captured for relevant states and viewports
+- Layout QA completed for overlap, clipping, text overflow, horizontal scrolling, and touch target size when UI changed
 - Responsive checks completed for mobile, tablet, and desktop unless the product defines other targets
 - Remaining risks explicitly named
 
@@ -169,6 +174,7 @@ Suggested evidence file names:
 - `after-[route]-tablet.png`
 - `console-log.txt`
 - `network-summary.md`
+- `layout-audit.json`
 
 ## Agent Personas
 
@@ -194,7 +200,7 @@ Pre-configured specialist personas for targeted reviews:
 
 ```text
 agent-skills-codex/
-├── skills/                 # 26 skills: 25 lifecycle + 1 meta
+├── skills/                 # 27 skills: 26 lifecycle + 1 meta
 ├── agents/                 # Specialist review personas
 ├── references/             # Supplementary checklists
 ├── docs/                   # Generic skill usage and anatomy docs

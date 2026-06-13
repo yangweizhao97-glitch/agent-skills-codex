@@ -1,0 +1,5 @@
+interface:
+  display_name: "Code Review and Quality"
+  short_description: "Review code across correctness, simplicity, architecture, security, and performance"
+  default_prompt: "Use this skill before accepting or merging a change to review tests first, inspect implementation quality, categorize findings by severity, and verify the evidence for the completed work."
+

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Visual Regression and Layout QA"
+  short_description: "Catch overlap, overflow, clipping, and responsive UI defects"
+  default_prompt: "Use this skill after frontend or full-stack UI changes to run visual layout QA across viewports, capture screenshots, check overflow, touch targets, overlapping controls, clipping, console health, and report any remaining visual risks."
+

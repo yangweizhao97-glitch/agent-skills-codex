@@ -1,0 +1,5 @@
+interface:
+  display_name: "Frontend UI Engineering"
+  short_description: "Build polished, accessible, responsive user interfaces"
+  default_prompt: "Use this skill when creating or modifying user-facing UI so the implementation follows design-system conventions, avoids generic AI-looking layouts, handles responsive states, accessibility, loading, empty, and error states, and is ready for browser verification."
+

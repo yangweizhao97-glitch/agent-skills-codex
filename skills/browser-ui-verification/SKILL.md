@@ -9,7 +9,7 @@ description: Verifies frontend and full-stack changes in a real browser from the
 
 Verify that the user-facing experience works in a real browser, not just in code, unit tests, or API scripts. Treat browser verification as a release gate for frontend and full-stack work: render the page, operate it like a user, inspect runtime evidence, fix issues, and repeat until the expected flow is proven.
 
-This skill complements `browser-testing-with-devtools`: use this skill to define the acceptance workflow and quality bar, and use browser/DevTools tools such as Playwright or Chrome DevTools MCP to collect evidence.
+This skill complements `browser-testing-with-devtools` and `visual-regression-and-layout-qa`: use this skill to define the acceptance workflow and quality bar, use browser/DevTools tools such as Playwright or Chrome DevTools MCP to collect evidence, and use layout QA when visual defects such as overlap, clipping, overflow, or broken responsive states could regress.
 
 No screenshot, no browser proof. No browser proof, no completion.
 
@@ -19,6 +19,7 @@ No screenshot, no browser proof. No browser proof, no completion.
 |---|---|
 | `browser-ui-verification` | Defines what must be proven: user journey, expected result, pass/fail criteria, viewport set, and evidence format |
 | `browser-testing-with-devtools` | Provides browser runtime tools: screenshot, DOM, console, network, performance, accessibility tree, and computed styles |
+| `visual-regression-and-layout-qa` | Provides a stricter visual gate for screenshots, horizontal overflow, overlapping controls, small touch targets, clipped overlays, and long-content layout stress |
 
 Use `browser-ui-verification` to decide what must be proven. Use `browser-testing-with-devtools` to collect browser runtime evidence.
 
@@ -167,6 +168,7 @@ Minimum exit checklist:
 - [ ] Network requests checked when the flow depends on APIs
 - [ ] Screenshot or visual inspection confirmed no obvious layout defects
 - [ ] Responsive checks completed for user-facing layouts
+- [ ] Layout QA completed for overlap, overflow, clipping, small touch targets, and long text when UI layout changed
 - [ ] Any discovered issue fixed and re-verified, or explicitly reported as remaining risk
 
 Evidence files should use stable, reviewable names when files are saved:
@@ -177,6 +179,7 @@ Evidence files should use stable, reviewable names when files are saved:
 - `after-[route]-tablet.png`
 - `console-log.txt`
 - `network-summary.md`
+- `layout-audit.json`
 
 Normalize route names for filenames, for example `/settings/profile` becomes `settings-profile`.
 

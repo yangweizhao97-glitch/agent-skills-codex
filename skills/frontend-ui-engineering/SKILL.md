@@ -255,6 +255,19 @@ Design for mobile first, then expand:
 
 Test at these breakpoints: 320px, 768px, 1024px, 1440px.
 
+### Layout Robustness
+
+Build layouts that survive real content and narrow screens:
+
+- Use normal flow, flexbox, and grid for structure; reserve absolute positioning for decoration or truly anchored overlays.
+- Give fixed-format elements stable constraints: `min-width`, `max-width`, `min-height`, `aspect-ratio`, or explicit grid tracks.
+- Buttons must handle the longest expected label without clipped text or sibling overlap.
+- Toolbars, filter bars, tab lists, and card actions must wrap, scroll within a contained region, or collapse to an intentional mobile pattern.
+- Avoid `width: 100vw` inside padded containers; it commonly creates horizontal document scrolling.
+- Sticky and fixed elements must not cover focused inputs, validation messages, or anchored content.
+- Decorative layers should not intercept clicks; use `pointer-events: none` when appropriate.
+- Data tables may scroll horizontally inside a specific container, but the whole page should not.
+
 ## Loading and Transitions
 
 ```tsx
@@ -323,6 +336,9 @@ After building UI:
 - [ ] All interactive elements are keyboard accessible (Tab through the page)
 - [ ] Screen reader can convey the page's content and structure
 - [ ] Responsive: works at 320px, 768px, 1024px, 1440px
+- [ ] No horizontal document scrolling, overlapping controls, clipped labels, or hidden focus states
+- [ ] Long realistic content was checked in buttons, forms, cards, and list/table rows
 - [ ] Loading, error, and empty states all handled
 - [ ] Follows the project's design system (spacing, colors, typography)
 - [ ] No accessibility warnings in dev tools or axe-core
+- [ ] `visual-regression-and-layout-qa` was used when layout, responsive behavior, or visual polish changed

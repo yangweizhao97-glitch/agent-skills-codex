@@ -1,0 +1,5 @@
+interface:
+  display_name: "Test-Driven Development"
+  short_description: "Prove behavior with focused tests"
+  default_prompt: "Use this skill when implementing logic, fixing bugs, or changing behavior so the change is backed by meaningful tests, regression coverage, and an explicit verification story."
+
