@@ -1,10 +1,14 @@
 # AGENTS.md
 
-This file provides guidance to AI coding agents (Claude Code, Cursor, Copilot, Antigravity, etc.) when working with code in this repository.
+This file provides guidance to Codex-style AI coding agents when working with this repository.
 
 ## Repository Overview
 
-A collection of skills for Claude.ai and Claude Code for senior software engineers. Skills are packaged instructions and scripts that extend Claude and your coding agents capabilities.
+A Codex-oriented skill pack based on `addyosmani/agent-skills`. It preserves the original senior-engineering lifecycle workflows and adds stronger completion gates for real-browser UI verification and backend reliability review.
+
+For frontend or full-stack tasks, code tests passing is not sufficient. Use `browser-ui-verification` to prove the rendered UI, user journey, console state, network behavior, and responsive layout in a real browser before marking work complete.
+
+For backend or full-stack tasks that touch data, permissions, side effects, external integrations, or production behavior, use `backend-reliability-review` to check validation, authorization, consistency, transactions, concurrency, idempotency, errors, performance, and observability.
 
 ## OpenCode Integration
 
@@ -27,7 +31,8 @@ The agent should automatically map user intent to skills:
 - Code review → `code-review-and-quality`
 - Refactoring / simplification → `code-simplification`
 - API or interface design → `api-and-interface-design`
-- UI work → `frontend-ui-engineering`
+- UI work → `frontend-ui-engineering`, then `browser-ui-verification`
+- Backend reliability work → `backend-reliability-review`
 
 ### Lifecycle Mapping (Implicit Commands)
 
@@ -38,7 +43,7 @@ Instead, the agent must internally follow this lifecycle:
 - DEFINE → `spec-driven-development`
 - PLAN → `planning-and-task-breakdown`
 - BUILD → `incremental-implementation` + `test-driven-development`
-- VERIFY → `debugging-and-error-recovery`
+- VERIFY → `test-driven-development` + `browser-ui-verification` for user-visible UI + `backend-reliability-review` for backend risk + `debugging-and-error-recovery` when something breaks
 - REVIEW → `code-review-and-quality`
 - SHIP → `shipping-and-launch`
 

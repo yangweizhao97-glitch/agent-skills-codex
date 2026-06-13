@@ -1,0 +1,4 @@
+interface:
+  display_name: "Backend Reliability Review"
+  short_description: "Review APIs and backend flows for reliability risks"
+  default_prompt: "Use this skill to review backend or full-stack changes for API validation, authorization, data consistency, transactions, concurrency, idempotency, error handling, security, performance, and observability before marking the work complete."

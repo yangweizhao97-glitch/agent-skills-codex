@@ -11,6 +11,17 @@ Verify that the user-facing experience works in a real browser, not just in code
 
 This skill complements `browser-testing-with-devtools`: use this skill to define the acceptance workflow and quality bar, and use browser/DevTools tools such as Playwright or Chrome DevTools MCP to collect evidence.
 
+No screenshot, no browser proof. No browser proof, no completion.
+
+## Skill Boundary
+
+| Skill | Role |
+|---|---|
+| `browser-ui-verification` | Defines what must be proven: user journey, expected result, pass/fail criteria, viewport set, and evidence format |
+| `browser-testing-with-devtools` | Provides browser runtime tools: screenshot, DOM, console, network, performance, accessibility tree, and computed styles |
+
+Use `browser-ui-verification` to decide what must be proven. Use `browser-testing-with-devtools` to collect browser runtime evidence.
+
 ## When to Use
 
 Use this skill after completing or changing frontend or full-stack work where the final result is user-visible.
@@ -64,6 +75,16 @@ Perform actual user operations:
 - Exercise loading, empty, success, and error states when reachable
 
 Use JavaScript execution only for read-only inspection by default. Do not treat direct DOM mutation as proof that the user flow works.
+
+Default viewport set:
+
+| Viewport | Size |
+|---|---|
+| Mobile | 390 x 844 |
+| Tablet | 768 x 1024 |
+| Desktop | 1440 x 900 |
+
+If the product has specific target devices or breakpoints, use those instead. If time is constrained, verify at least the primary target viewport and one narrow mobile viewport, then report the untested viewports as remaining risk.
 
 ### 3. Inspect Runtime Evidence
 
@@ -119,6 +140,20 @@ Do not report completion while known browser failures remain unresolved unless t
 | "I don't need to click through it." | If the task changes interaction, completion requires operating the interaction through the visible UI. |
 | "Responsive CSS should handle mobile." | Responsive intent is not evidence. Check at the relevant viewport sizes. |
 
+## Completion Rule
+
+For frontend or full-stack tasks, code tests passing is not sufficient. The task is incomplete if:
+
+- The app cannot be opened in a real browser
+- The primary user journey cannot be completed through visible UI operations
+- The console contains uncaught errors
+- Required network requests fail or return unexpected status codes
+- The rendered UI does not match the expected behavior
+- Responsive layout is broken on required viewports
+- Required evidence is missing
+
+Do not mark the task complete until these conditions are resolved or the user explicitly accepts the remaining limitation.
+
 ## Verification
 
 A frontend or full-stack task is not done until browser verification produces evidence for the relevant flow.
@@ -133,6 +168,17 @@ Minimum exit checklist:
 - [ ] Screenshot or visual inspection confirmed no obvious layout defects
 - [ ] Responsive checks completed for user-facing layouts
 - [ ] Any discovered issue fixed and re-verified, or explicitly reported as remaining risk
+
+Evidence files should use stable, reviewable names when files are saved:
+
+- `before-[route]-desktop.png`
+- `after-[route]-desktop.png`
+- `after-[route]-mobile.png`
+- `after-[route]-tablet.png`
+- `console-log.txt`
+- `network-summary.md`
+
+Normalize route names for filenames, for example `/settings/profile` becomes `settings-profile`.
 
 ## Report Format
 
