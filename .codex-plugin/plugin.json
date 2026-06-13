@@ -1,0 +1,7 @@
+{
+  "name": "agent-skills-codex",
+  "version": "0.1.0",
+  "description": "Codex-native browser-proof engineering skill pack with UI verification, visual layout QA, backend reliability review, and evidence-based completion workflows.",
+  "skills": "./skills/"
+}
+

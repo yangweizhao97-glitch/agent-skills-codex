@@ -28,6 +28,11 @@ Idea/Spec --> Tasks  -->   Code   -->   Tests + Browser Proof --> QA Gate --> La
 
 For Codex-style coding agents, load skills as instruction context instead of relying on Claude/Gemini plugin commands.
 
+This repository can be used in two ways:
+
+- As local skills copied into `.agents/skills` or `~/.agents/skills`.
+- As a Codex plugin package using `.codex-plugin/plugin.json`.
+
 Start with:
 
 1. `skills/using-agent-skills/SKILL.md`
@@ -55,6 +60,22 @@ git clone https://github.com/yangweizhao97-glitch/agent-skills-codex.git
 cd agent-skills-codex
 ```
 
+Validate the skill pack:
+
+```bash
+node scripts/validate-skills.mjs
+```
+
+Install skills for Codex discovery:
+
+```bash
+# repo-scoped install into the current repository
+scripts/codex-install-skills.sh --repo
+
+# user-scoped install for your local Codex profile
+scripts/codex-install-skills.sh --user
+```
+
 Then point your coding agent at:
 
 ```text
@@ -68,6 +89,12 @@ skills/frontend-ui-engineering/SKILL.md
 skills/test-driven-development/SKILL.md
 skills/browser-ui-verification/SKILL.md
 skills/visual-regression-and-layout-qa/SKILL.md
+```
+
+For layout-sensitive UI work, run the layout audit helper against a local app:
+
+```bash
+node skills/visual-regression-and-layout-qa/scripts/playwright-layout-audit.mjs --url http://127.0.0.1:3000 --out evidence/layout-qa
 ```
 
 For a backend API or data-writing implementation, add:
@@ -200,12 +227,18 @@ Pre-configured specialist personas for targeted reviews:
 
 ```text
 agent-skills-codex/
+├── .codex-plugin/          # Codex plugin manifest
+├── .github/workflows/      # Repository validation CI
 ├── skills/                 # 27 skills: 26 lifecycle + 1 meta
 ├── agents/                 # Specialist review personas
+├── bundles/                # Recommended skill combinations by task type
 ├── references/             # Supplementary checklists
-├── docs/                   # Generic skill usage and anatomy docs
+├── docs/                   # Usage, anatomy, release, and maturity docs
+├── scripts/                # Install, sync, validation, and evidence helpers
+├── templates/              # Completion report templates
 ├── AGENTS.md               # Agent-oriented routing guidance
 ├── CODEX-README.md         # Local selection notes for this Codex-oriented package
+├── UPSTREAM.md             # Relationship to the upstream project
 ├── README.md
 └── LICENSE
 ```

@@ -13,6 +13,14 @@ Refines raw ideas into sharp, actionable concepts worth building through structu
 2.  **Evaluate & Converge:** Cluster ideas, stress-test them, and surface hidden assumptions.
 3.  **Sharpen & Ship:** Produce a concrete markdown one-pager moving work forward.
 
+## When to Use
+
+- An idea is still vague and needs sharpening before planning or implementation.
+- The user asks to ideate, refine an idea, or stress-test a plan.
+- You need to explore multiple directions before converging on one.
+
+Do not use when the user already has a clear spec and is asking for implementation.
+
 ## Usage
 
 This skill is primarily an interactive dialogue. Invoke it with an idea, and the agent will guide you through the process.
@@ -148,6 +156,14 @@ Ask the user if they'd like to save this to `docs/ideas/[idea-name].md` (or a lo
 - **Don't over-engineer the process.** Three phases, each doing one thing well. Resist adding steps.
 - **Don't just list ideas — tell a story.** Each variation should have a reason it exists, not just be a bullet point.
 - **Don't ignore the codebase.** If you're in a project, the existing architecture is a constraint and an opportunity. Use it.
+
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "The idea is obvious enough to implement." | Obvious ideas often hide unclear users, success criteria, and assumptions. |
+| "More ideas means better ideation." | A few well-stressed directions beat many shallow variations. |
+| "The user sounds excited, so I should agree." | Good refinement includes respectful pushback and explicit trade-offs. |
 
 ### Tone
 

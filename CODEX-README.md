@@ -20,6 +20,8 @@ Codex fork:
 
 Suggested use:
 - Start with `skills/using-agent-skills/SKILL.md` to choose the right workflow.
+- Run `node scripts/validate-skills.mjs` before publishing changes.
+- Install locally with `scripts/codex-install-skills.sh --repo` or `scripts/codex-install-skills.sh --user`.
 - For feature work, load `spec-driven-development`, then `planning-and-task-breakdown`, then `incremental-implementation` and `test-driven-development`.
 - For frontend or full-stack work, load `browser-ui-verification` during Verify. Code tests alone are not sufficient for user-visible changes.
 - For frontend layout or visual polish work, also load `visual-regression-and-layout-qa`; screenshots alone are useful, but screenshots plus layout-audit evidence are better.

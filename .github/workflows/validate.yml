@@ -1,0 +1,33 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Reject .DS_Store
+        run: test -z "$(find . -name .DS_Store -print)"
+
+      - name: Validate skills
+        run: node scripts/validate-skills.mjs
+
+      - name: Check Node scripts
+        run: |
+          node --check scripts/validate-skills.mjs
+          node --check scripts/sync-repo-skills.mjs
+          node --check scripts/generate-evidence-report.mjs
+          node --check skills/visual-regression-and-layout-qa/scripts/playwright-layout-audit.mjs
+
+      - name: Check plugin manifest JSON
+        run: node -e "JSON.parse(require('fs').readFileSync('.codex-plugin/plugin.json', 'utf8'))"

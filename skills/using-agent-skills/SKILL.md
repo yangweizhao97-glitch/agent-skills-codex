@@ -9,6 +9,14 @@ description: Discovers and invokes agent skills. Use when starting a session or 
 
 Agent Skills is a collection of engineering workflow skills organized by development phase. Each skill encodes a specific process that senior engineers follow. This meta-skill helps you discover and apply the right skill for your current task.
 
+## When to Use
+
+- Starting a session and deciding which workflow applies.
+- A task could match multiple skills and needs routing.
+- You need the lifecycle sequence for feature, bug fix, review, or shipping work.
+
+Do not use as a replacement for task-specific skills. Use it to select them.
+
 ## Skill Discovery
 
 When a task arrives, identify the development phase and apply the corresponding skill:
@@ -128,6 +136,14 @@ These are the subtle errors that look like productivity but create problems:
 9. Building without a spec because "it's obvious"
 10. Skipping verification because "it looks right"
 
+## Common Rationalizations
+
+| Rationalization | Reality |
+|---|---|
+| "This task is too small for a skill." | Small tasks still benefit from the right verification habit. |
+| "I'll choose skills after I inspect everything." | Skill routing is part of starting work, not an afterthought. |
+| "One skill is enough for a full-stack change." | Full-stack work usually needs build, test, browser, layout, and backend reliability checks. |
+
 ## Skill Rules
 
 1. **Check for an applicable skill before starting work.** Skills encode processes that prevent common mistakes.
@@ -196,3 +212,14 @@ Not every task needs every skill. A bug fix might only need: `debugging-and-erro
 | Ship | documentation-and-adrs | Document the why, not just the what |
 | Ship | observability-and-instrumentation | Structured logs, RED metrics, traces, symptom-based alerts |
 | Ship | shipping-and-launch | Pre-launch checklist, monitoring, rollback plan |
+
+## Verification
+
+After routing a task:
+
+- [ ] The applicable phase is identified
+- [ ] Task-specific skills are selected, not only this meta-skill
+- [ ] Frontend/full-stack work includes browser verification
+- [ ] Layout-sensitive UI work includes visual layout QA
+- [ ] Backend/API/data-writing work includes backend reliability review
+- [ ] The final verification plan matches the selected skills
