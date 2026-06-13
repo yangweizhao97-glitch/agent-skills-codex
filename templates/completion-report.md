@@ -34,3 +34,8 @@
 
 If browser evidence is missing for frontend or full-stack work, write `Not complete` instead of `Done`.
 
+Validate this report with:
+
+```bash
+node scripts/assert-evidence-complete.mjs --task frontend --evidence <evidence-dir>
+```

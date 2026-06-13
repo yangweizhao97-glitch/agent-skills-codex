@@ -1,0 +1,5 @@
+interface:
+  display_name: "Planning and Task Breakdown"
+  short_description: "Break requirements into ordered, verifiable tasks"
+  default_prompt: "Use this skill after requirements are clear to decompose work into small implementation steps with verification gates and safe sequencing."
+

@@ -21,6 +21,7 @@ Codex fork:
 Suggested use:
 - Start with `skills/using-agent-skills/SKILL.md` to choose the right workflow.
 - Run `node scripts/validate-skills.mjs` before publishing changes.
+- Run `node scripts/assert-evidence-complete.mjs --task frontend --evidence <dir>` before claiming frontend/full-stack completion.
 - Install locally with `scripts/codex-install-skills.sh --repo` or `scripts/codex-install-skills.sh --user`.
 - For feature work, load `spec-driven-development`, then `planning-and-task-breakdown`, then `incremental-implementation` and `test-driven-development`.
 - For frontend or full-stack work, load `browser-ui-verification` during Verify. Code tests alone are not sufficient for user-visible changes.

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Shipping and Launch"
+  short_description: "Prepare changes for safe release"
+  default_prompt: "Use this skill when preparing a meaningful change for release, deployment, sharing, rollout, monitoring, or rollback planning."
+

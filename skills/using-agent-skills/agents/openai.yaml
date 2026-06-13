@@ -1,0 +1,5 @@
+interface:
+  display_name: "Using Agent Skills"
+  short_description: "Route tasks to the right skill workflow"
+  default_prompt: "Use this skill at the start of a session or task to choose the relevant Codex workflow skills, especially for frontend, full-stack, backend, review, and shipping work."
+

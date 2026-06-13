@@ -27,6 +27,7 @@ jobs:
           node --check scripts/validate-skills.mjs
           node --check scripts/sync-repo-skills.mjs
           node --check scripts/generate-evidence-report.mjs
+          node --check scripts/assert-evidence-complete.mjs
           node --check skills/visual-regression-and-layout-qa/scripts/playwright-layout-audit.mjs
 
       - name: Check plugin manifest JSON

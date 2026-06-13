@@ -1,0 +1,5 @@
+interface:
+  display_name: "Security and Hardening"
+  short_description: "Harden code that handles untrusted data"
+  default_prompt: "Use this skill when handling user input, authentication, authorization, secrets, storage, external integrations, or any behavior with security risk."
+

@@ -10,7 +10,10 @@
 - `test-driven-development`
 - `browser-ui-verification`
 - `visual-regression-and-layout-qa`
-- `accessibility-checklist` reference when accessibility risk exists
+
+## References
+
+- `references/accessibility-checklist.md` when accessibility risk exists
 
 ## Completion Requires
 
@@ -27,4 +30,3 @@
 - Mobile or narrow viewport untested for responsive UI
 - Console errors unexplained
 - Known overlap, overflow, clipping, or hidden controls remain unresolved
-

@@ -1,0 +1,5 @@
+interface:
+  display_name: "Spec Driven Development"
+  short_description: "Define requirements and acceptance criteria before code"
+  default_prompt: "Use this skill when starting a new project, feature, or significant change without a clear specification so requirements, constraints, and acceptance criteria are explicit before implementation."
+

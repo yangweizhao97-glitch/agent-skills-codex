@@ -9,4 +9,6 @@ coverage/
 .vite/
 .codex-log/
 evidence/
+!examples/**/evidence/
+!examples/**/evidence/**
 

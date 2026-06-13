@@ -1,0 +1,25 @@
+[
+  {
+    "viewport": "390x844",
+    "screenshot": "after-form-mobile.png",
+    "consoleEntries": [],
+    "audit": {
+      "documentHorizontalOverflow": false,
+      "smallTouchTargets": [],
+      "interactiveOverlaps": [],
+      "viewportClipping": []
+    }
+  },
+  {
+    "viewport": "1440x900",
+    "screenshot": "after-form-desktop.png",
+    "consoleEntries": [],
+    "audit": {
+      "documentHorizontalOverflow": false,
+      "smallTouchTargets": [],
+      "interactiveOverlaps": [],
+      "viewportClipping": []
+    }
+  }
+]
+

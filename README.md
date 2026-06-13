@@ -66,6 +66,20 @@ Validate the skill pack:
 node scripts/validate-skills.mjs
 ```
 
+Validate task evidence:
+
+```bash
+node scripts/assert-evidence-complete.mjs --task frontend --evidence evidence/layout-qa
+```
+
+Try the included evidence examples:
+
+```bash
+node scripts/assert-evidence-complete.mjs --task frontend --evidence examples/frontend-form-flow/evidence
+node scripts/assert-evidence-complete.mjs --task fullstack --evidence examples/fullstack-api-ui-flow/evidence
+node scripts/assert-evidence-complete.mjs --task backend --evidence examples/backend-idempotency-review/evidence
+```
+
 Install skills for Codex discovery:
 
 ```bash
@@ -223,6 +237,14 @@ Pre-configured specialist personas for targeted reviews:
 | [performance-checklist.md](references/performance-checklist.md) | Core Web Vitals targets, frontend/backend checklists, measurement commands |
 | [accessibility-checklist.md](references/accessibility-checklist.md) | Keyboard nav, screen readers, visual design, ARIA, testing tools |
 
+## Examples
+
+| Example | Shows |
+|---|---|
+| [frontend-form-flow](examples/frontend-form-flow/task.md) | Frontend browser evidence with desktop/mobile screenshots, console log, network summary, and layout audit |
+| [fullstack-api-ui-flow](examples/fullstack-api-ui-flow/task.md) | Full-stack UI plus API evidence for a browser-driven workflow |
+| [backend-idempotency-review](examples/backend-idempotency-review/task.md) | Backend reliability review evidence without browser artifacts |
+
 ## Project Structure
 
 ```text
@@ -234,6 +256,7 @@ agent-skills-codex/
 ├── bundles/                # Recommended skill combinations by task type
 ├── references/             # Supplementary checklists
 ├── docs/                   # Usage, anatomy, release, and maturity docs
+├── examples/               # Evidence-backed sample task reports
 ├── scripts/                # Install, sync, validation, and evidence helpers
 ├── templates/              # Completion report templates
 ├── AGENTS.md               # Agent-oriented routing guidance

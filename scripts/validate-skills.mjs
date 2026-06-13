@@ -7,11 +7,18 @@ const skillsDir = path.join(root, "skills");
 const requiredWorkflowSections = ["## When to Use", "## Verification"];
 const recommendedWorkflowSections = ["## Common Rationalizations"];
 const coreSkillsRequiringOpenAIYaml = new Set([
+  "api-and-interface-design",
   "backend-reliability-review",
   "browser-ui-verification",
   "code-review-and-quality",
   "frontend-ui-engineering",
+  "incremental-implementation",
+  "planning-and-task-breakdown",
+  "security-and-hardening",
+  "shipping-and-launch",
+  "spec-driven-development",
   "test-driven-development",
+  "using-agent-skills",
   "visual-regression-and-layout-qa"
 ]);
 

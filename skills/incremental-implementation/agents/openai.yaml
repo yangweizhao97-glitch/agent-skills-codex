@@ -1,0 +1,5 @@
+interface:
+  display_name: "Incremental Implementation"
+  short_description: "Build changes in thin verified slices"
+  default_prompt: "Use this skill when a feature or fix touches multiple files so each slice leaves the system working, tested, and ready for the next step."
+
