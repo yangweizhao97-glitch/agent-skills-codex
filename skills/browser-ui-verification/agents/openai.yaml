@@ -1,0 +1,4 @@
+interface:
+  display_name: "Browser UI Verification"
+  short_description: "Verify frontend flows in a real browser"
+  default_prompt: "Use this skill after frontend or full-stack changes to validate the rendered UI, user flows, console logs, network requests, responsiveness, and expected behavior in a real browser."
