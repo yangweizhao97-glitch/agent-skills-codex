@@ -2,6 +2,8 @@
 
 **Codex-oriented engineering skills for AI coding agents.**
 
+![Agent Skills Codex overview](assets/readme/overview.svg)
+
 This repository is based on [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills) and adapted for Codex-style coding agents. It keeps the original lifecycle discipline, then strengthens the places where AI coding agents often overclaim completion: real-browser UI verification, frontend interaction checks, expected-behavior matching, backend reliability review, and evidence-based test output.
 
 Compared with the original workflow, this Codex-oriented version treats code-level tests, API checks, and unit tests as necessary but not always sufficient. For frontend or full-stack tasks, the agent must open the application in a real browser, render the page, operate the UI like a user, inspect console logs and network requests, verify responsive layouts, compare the visible result against the expected behavior, and provide evidence such as screenshots, logs, and network summaries. A task cannot be marked complete until the primary user journey is proven through browser evidence.
