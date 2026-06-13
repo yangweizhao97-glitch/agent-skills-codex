@@ -30,5 +30,16 @@ jobs:
           node --check scripts/assert-evidence-complete.mjs
           node --check skills/visual-regression-and-layout-qa/scripts/playwright-layout-audit.mjs
 
+      - name: Smoke test evidence checker
+        run: |
+          mkdir -p /tmp/evidence
+          touch /tmp/evidence/after-home-desktop.png
+          touch /tmp/evidence/after-home-mobile.png
+          touch /tmp/evidence/console-log.txt
+          touch /tmp/evidence/network-summary.md
+          touch /tmp/evidence/layout-audit.json
+          printf '# Completion Report\n\n## Not Verified\n- None\n' > /tmp/evidence/completion-report.md
+          node scripts/assert-evidence-complete.mjs --task frontend --evidence /tmp/evidence
+
       - name: Check plugin manifest JSON
         run: node -e "JSON.parse(require('fs').readFileSync('.codex-plugin/plugin.json', 'utf8'))"
