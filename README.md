@@ -26,6 +26,25 @@ Idea/Spec --> Tasks  -->   Code   -->   Tests + Browser Proof --> QA Gate --> La
 | Backend reliability | Adds `backend-reliability-review` for validation, auth, consistency, concurrency, and idempotency |
 | Completion discipline | Treats missing evidence as incomplete work |
 
+## How This Differs From Upstream
+
+This project keeps the upstream lifecycle skills from [`addyosmani/agent-skills`](https://github.com/addyosmani/agent-skills), but changes the packaging and completion standard for Codex-style agents.
+
+| Topic | Upstream `addyosmani/agent-skills` | This Codex version |
+|---|---|---|
+| Primary target | Multi-platform agent skill pack with Claude Code slash commands and setup guides for several tools | Codex-first Markdown skill pack with explicit completion gates and Codex install helpers |
+| Completion standard | Tests and workflow-specific verification | Evidence-backed completion: tests plus browser proof for frontend/full-stack work and reliability review for backend/API work |
+| Frontend proof | Browser tooling skill exists, but real-browser evidence is not a universal completion gate | `browser-ui-verification` requires rendered UI checks, user journey proof, screenshots, console review, network review, and viewport coverage |
+| Layout QA | Covered broadly through frontend/accessibility guidance | `visual-regression-and-layout-qa` adds a focused layout gate for overlap, clipping, overflow, touch targets, responsive breakpoints, and long-content stress cases |
+| Backend review | API, security, observability, and review skills cover backend concerns across the lifecycle | `backend-reliability-review` adds a dedicated gate for validation, authorization, consistency, concurrency, idempotency, error semantics, performance, and observability |
+| Codex metadata | Skills are portable Markdown; Codex uses the generic "other agents" path | Core skills include `agents/openai.yaml` metadata for Codex-oriented discovery/routing |
+| Evidence automation | Upstream validates skill structure with `scripts/validate-skills.js` | Adds `scripts/assert-evidence-complete.mjs`, `scripts/generate-evidence-report.mjs`, `scripts/codex-install-skills.sh`, `scripts/sync-repo-skills.mjs`, and a Codex-oriented `scripts/validate-skills.mjs` |
+| Examples | Upstream focuses on skills, agents, commands, hooks, and platform setup | Adds runnable evidence examples for frontend, full-stack, and backend reliability workflows under `examples/` |
+| Packaging | Includes Claude commands, hooks, `plugin.json`, and multi-platform setup docs | Removes upstream command/hook/plugin packaging from the root distribution and documents platform interop separately |
+| Reporting | General workflow exit criteria | Adds `templates/completion-report.md` and evidence file conventions so final reports show what was actually verified |
+
+In short: upstream is the broad multi-agent skill system; this repository is the Codex completion-gate edition. It preserves the lifecycle model, then adds proof requirements where AI coding agents most often overclaim: visible UI behavior, responsive layout quality, backend reliability, and final-report evidence.
+
 ## Codex Usage
 
 For Codex-style coding agents, load skills as instruction context instead of relying on Claude/Gemini plugin commands.

@@ -8,6 +8,17 @@ Why this one:
 - This folder keeps the portable pieces only: `skills/`, `references/`, `agents/`, `AGENTS.md`, and core docs.
 - This fork adds Codex-focused verification gates for real-browser UI proof and backend reliability review.
 - This fork adds visual layout QA for overlap, overflow, clipping, touch target, and responsive defects.
+- This fork adds evidence scripts, examples, bundles, completion-report templates, and Codex `agents/openai.yaml` metadata.
+
+What changed from upstream:
+
+| Area | Upstream | Codex fork |
+|---|---|---|
+| Agent entry points | Claude slash commands, hooks, plugin metadata, and several platform setup docs | Codex-oriented Markdown skills, install script, bundles, and routing guidance |
+| UI completion | Browser tools can be used during verification | Browser evidence is mandatory for frontend/full-stack completion |
+| Layout quality | General frontend and accessibility guidance | Dedicated visual layout QA workflow plus Playwright audit helper |
+| Backend quality | API/security/review skills cover backend work | Dedicated backend reliability review gate |
+| Reporting | Skill-specific exit criteria | Evidence directories and completion reports are first-class outputs |
 
 Source:
 - Repository: https://github.com/addyosmani/agent-skills

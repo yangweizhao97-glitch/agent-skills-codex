@@ -4,6 +4,13 @@ All notable changes to this project will be documented here.
 
 This project follows semantic versioning.
 
+## 0.5.1 - 2026-06-14
+
+### Changed
+
+- Expanded public documentation comparing this Codex fork with upstream `addyosmani/agent-skills`.
+- Documented Codex-only additions: browser evidence gates, visual layout QA, backend reliability review, evidence scripts, examples, bundles, templates, and Codex metadata.
+
 ## 0.5.0 - 2026-06-13
 
 ### Added

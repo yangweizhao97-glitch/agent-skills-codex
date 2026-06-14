@@ -1,6 +1,6 @@
-# Getting Started with agent-skills
+# Getting Started with Agent Skills Codex
 
-agent-skills works with any AI coding agent that accepts Markdown instructions. This guide covers the universal approach. For tool-specific setup, see the dedicated guides.
+Agent Skills Codex works with any AI coding agent that accepts Markdown instructions, but it is packaged for Codex-style workflows: load the right `SKILL.md` files, run the relevant verification, and report evidence before claiming completion.
 
 ## How Skills Work
 
@@ -13,7 +13,8 @@ Each skill is a Markdown file (`SKILL.md`) that describes a specific engineering
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/addyosmani/agent-skills.git
+git clone https://github.com/yangweizhao97-glitch/agent-skills-codex.git
+cd agent-skills-codex
 ```
 
 ### 2. Choose a skill
@@ -39,6 +40,25 @@ Copy the relevant `SKILL.md` content into your agent's system prompt, rules file
 
 Start with the `using-agent-skills` skill loaded. It contains a flowchart that maps task types to the appropriate skill.
 
+### 5. Validate the pack and task evidence
+
+```bash
+node scripts/validate-skills.mjs
+```
+
+For frontend or full-stack tasks, evidence is part of completion:
+
+```bash
+node scripts/assert-evidence-complete.mjs --task frontend --evidence evidence/layout-qa
+```
+
+Install skills for Codex discovery when you want repo-scoped or user-scoped skill lookup:
+
+```bash
+scripts/codex-install-skills.sh --repo
+scripts/codex-install-skills.sh --user
+```
+
 ## Recommended Setup
 
 ### Minimal (Start here)
@@ -58,6 +78,8 @@ For comprehensive coverage, load skills by phase:
 ```
 Starting a project:  spec-driven-development → planning-and-task-breakdown
 During development:  incremental-implementation + test-driven-development
+Frontend verify:     browser-ui-verification + visual-regression-and-layout-qa
+Backend verify:      backend-reliability-review + security-and-hardening
 Before merge:        code-review-and-quality + security-and-hardening
 Before deploy:       shipping-and-launch
 ```
@@ -67,6 +89,9 @@ Before deploy:       shipping-and-launch
 Don't load all skills at once — it wastes context. Load skills relevant to the current task:
 
 - Working on UI? Load `frontend-ui-engineering`
+- Verifying frontend or full-stack work? Load `browser-ui-verification`
+- Checking layout-sensitive UI? Load `visual-regression-and-layout-qa`
+- Changing APIs, auth, database writes, jobs, queues, webhooks, or external integrations? Load `backend-reliability-review`
 - Debugging? Load `debugging-and-error-recovery`
 - Setting up CI? Load `ci-cd-and-automation`
 
@@ -100,20 +125,26 @@ The `agents/` directory contains pre-configured agent personas:
 
 Load an agent definition when you need specialized review. For example, ask your coding agent to "review this change using the code-reviewer agent persona" and provide the agent definition.
 
-## Using Commands
+## Codex Completion Gates
 
-The `.claude/commands/` directory contains slash commands for Claude Code:
+This fork intentionally treats verification output as part of the deliverable.
 
-| Command | Skill Invoked |
-|---------|---------------|
-| `/spec` | spec-driven-development |
-| `/plan` | planning-and-task-breakdown |
-| `/build` | incremental-implementation + test-driven-development |
-| `/build auto` | planning-and-task-breakdown → incremental-implementation + test-driven-development (whole plan, one approval) |
-| `/test` | test-driven-development |
-| `/review` | code-review-and-quality |
-| `/ship` | shipping-and-launch |
-| `/webperf` | web-performance-auditor (specialist agent, web apps only) |
+Frontend or full-stack work should include:
+
+- Browser screenshots for relevant states and viewports
+- Console error/warning review
+- Network summary when APIs are involved
+- Layout audit for overlap, clipping, overflow, touch targets, and responsive behavior
+- A final report that names what was verified and what was not verified
+
+Backend or full-stack work should include:
+
+- Validation and authorization review
+- Consistency, concurrency, and idempotency review
+- Error semantics and observability review
+- Tests or an explicit explanation for why tests could not run
+
+The upstream project includes Claude commands, hooks, and platform-specific setup files. This Codex-focused fork keeps the portable skill content and replaces those entry points with Codex install scripts, bundles, evidence examples, and completion gates.
 
 ## Using References
 
